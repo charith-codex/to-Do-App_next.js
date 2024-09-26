@@ -2,7 +2,7 @@ import React from 'react'
 
 const Navbar = () => {
   return (
-    <div className='flex py-3 flex-wrap justify-around  text-slate-600 bg-slate-200/50'>
+    <div className='flex py-3 flex-wrap justify-around  bg-slate-900 text-slate-200'>
       <h1 className='text-lg font-semibold'>Todo App</h1>
       <ul className='flex gap-[40px] text-base'>
         <li>Home</li>
