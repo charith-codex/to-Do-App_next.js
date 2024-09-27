@@ -1,16 +1,41 @@
+'use client';
 import Todo from '@/components/Todo';
+import { useState } from 'react';
 
 export default function Home() {
+  const [formData, setFormData] = useState({
+    title: '',
+    description: '',
+  });
+
+  const onChangeHandler = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+    setFormData((form) => ({ ...form, [name]: value }));
+    console.log(formData);
+  };
+
+  const onSubmitHandler = async (e) => {
+    e.preventDefault();
+  };
+
   return (
     <>
-      <form className="flex items-start flex-col gap-2 w-[80%] max-w-[600px] mt-24 px-2 mx-auto">
+      <form
+        onSubmit={onSubmitHandler}
+        className="flex items-start flex-col gap-2 w-[80%] max-w-[600px] mt-24 px-2 mx-auto"
+      >
         <input
+          value={formData.title}
+          onChange={onChangeHandler}
           type="text"
           name="title"
           placeholder="Enter Title"
           className="border-2 px-3 py-2 w-full rounded-md"
         />
         <textarea
+          value={formData.description}
+          onChange={onChangeHandler}
           name="description"
           placeholder="Enter Description"
           className="border-2 px-3 py-2 w-full rounded-md"
@@ -24,23 +49,23 @@ export default function Home() {
       </form>
 
       {/* table */}
-      <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-20 w-[60%] mx-auto">
-        <table class="w-full text-sm text-left rtl:text-right text-gray-500">
-          <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+      <div className="relative overflow-x-auto shadow-md sm:rounded-lg mt-20 w-[60%] mx-auto">
+        <table className="w-full text-sm text-left rtl:text-right text-gray-500">
+          <thead className="text-xs text-gray-700 uppercase bg-gray-50">
             <tr>
-              <th scope="col" class="px-6 py-3">
+              <th scope="col" className="px-6 py-3">
                 ID
               </th>
-              <th scope="col" class="px-6 py-3">
+              <th scope="col" className="px-6 py-3">
                 TITLE
               </th>
-              <th scope="col" class="px-6 py-3">
+              <th scope="col" className="px-6 py-3">
                 DESCRIPTION
               </th>
-              <th scope="col" class="px-6 py-3">
+              <th scope="col" className="px-6 py-3">
                 STATUS
               </th>
-              <th scope="col" class="px-6 py-3">
+              <th scope="col" className="px-6 py-3">
                 ACTION
               </th>
             </tr>
