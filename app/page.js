@@ -1,6 +1,8 @@
 'use client';
 import Todo from '@/components/Todo';
 import { useState } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Home() {
   const [formData, setFormData] = useState({
@@ -17,10 +19,22 @@ export default function Home() {
 
   const onSubmitHandler = async (e) => {
     e.preventDefault();
+    try {
+      //api code
+
+      toast.success('success', {
+        position: "bottom-right",
+        });
+    } catch (error) {
+      toast.error('error', {
+        position: "bottom-right",
+        });
+    }
   };
 
   return (
     <>
+      <ToastContainer />
       <form
         onSubmit={onSubmitHandler}
         className="flex items-start flex-col gap-2 w-[80%] max-w-[600px] mt-24 px-2 mx-auto"
