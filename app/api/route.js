@@ -2,7 +2,7 @@ import { ConnectDB } from '@/lib/config/db';
 import { NextResponse } from 'next/server';
 
 const LoadDB = async () => {
-  ConnectDB();
+  await ConnectDB();
 };
 
 LoadDB();
