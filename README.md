@@ -1,6 +1,7 @@
 # Full Stack To-Do App
 
 A simple and responsive To-Do application built with **Next.js** for the frontend and **MongoDB** as the backend database. This project demonstrates how to build a full-stack web application using modern web technologies and database management.
+![image](https://github.com/user-attachments/assets/6f989ba2-aa76-4459-9111-8ab3a3a0824b)
 
 ## Features
 
