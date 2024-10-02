@@ -1,4 +1,4 @@
-# Full Stack To-Do App
+# Full Stack To-Do App - NextJs
 
 A simple and responsive To-Do application built with **Next.js** for the frontend and **MongoDB** as the backend database. This project demonstrates how to build a full-stack web application using modern web technologies and database management.
 
@@ -35,7 +35,7 @@ npm install
 ```
 
 ### 3. Set up environment variables
-Create a .env.local file in the root of your project and add your MongoDB connection string:
+Create a .env file in the root of your project and add your MongoDB connection string:
 ```bash
 MONGODB_URI=mongodb+srv://<username>:<password>@cluster0.mongodb.net/todo-app
 ```
