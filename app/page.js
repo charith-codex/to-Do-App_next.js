@@ -18,6 +18,26 @@ export default function Home() {
     setTodoData(response.data.todos);
   };
 
+  const deleteTodo = async (id) => {
+    const response = await axios.delete('/api', {
+      params: {
+        mongoId: id,
+      },
+    });
+    toast.success(response.data.msg);
+    fetchTodos()
+  };
+
+  const completeTodo = async (id) => {
+    const response = await axios.put('/api',{}, {
+      params: {
+        mongoId: id,
+      },
+    });
+    toast.success(response.data.msg);
+    fetchTodos()
+  };
+
   useEffect(() => {
     fetchTodos();
   }, []);
@@ -81,7 +101,7 @@ export default function Home() {
       {/* table */}
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg mt-20 w-[60%] mx-auto">
         <table className="w-full text-sm text-left rtl:text-right text-gray-500">
-          <thead className="text-xs text-gray-700 uppercase bg-gray-50">
+          <thead className="text-xs bg-gray-700 uppercase text-gray-50">
             <tr>
               <th scope="col" className="px-6 py-3">
                 ID
@@ -110,6 +130,8 @@ export default function Home() {
                   description={item.description}
                   complete={item.isCompleted}
                   mongoId={item._id}
+                  deleteTodo={deleteTodo}
+                  completeTodo={completeTodo}
                 />
               );
             })}
